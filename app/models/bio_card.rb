@@ -1,0 +1,2 @@
+class BioCard < ApplicationRecord
+end

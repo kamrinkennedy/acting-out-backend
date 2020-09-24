@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  age: 1
+  heigth: MyString
+  weight: 1
+  eye_color: MyString
+  hair_color: MyString
+  belongs_to: 
+
+two:
+  age: 1
+  heigth: MyString
+  weight: 1
+  eye_color: MyString
+  hair_color: MyString
+  belongs_to: 

@@ -1,0 +1,2 @@
+class BioCardsController < ApplicationController
+end
