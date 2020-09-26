@@ -7,10 +7,14 @@ class BioCardsController < ApplicationController
     end
 
     def show
-        bio_card = BioCard.all.find(actor_id: params[:id])
-        
-        render json: bio_card
+        bio_card = BioCard.all.find_by(actor_id: params[:id])
+        if bio_card
+            render json: bio_card
+        else
+            render json: {error: 'Bio Not Found'}
+        end
     end
+    
 
     def destroy
     end

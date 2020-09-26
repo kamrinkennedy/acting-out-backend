@@ -9,7 +9,14 @@ class ActorsController < ApplicationController
     def create
     end
 
-    def edit
+    def update
+        actor = Actor.find(params[:id])
+        actor.picture_url = actor_params[:picture_url]
+        if actor.save 
+            render json: actor
+        else
+            render json: {error: 'Could not upload picture'}
+        end
     end
 
     def show 
@@ -24,7 +31,7 @@ class ActorsController < ApplicationController
     private
 
     def actor_params
-        params.require(:actor).permit(:first_name, :last_name)
+        params.require(:actor).permit(:first_name, :last_name, :picture_url)
     end
 
 
