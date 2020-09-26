@@ -7,6 +7,12 @@ class ActorsController < ApplicationController
     end
 
     def create
+        actor = Actor.new(actor_params)
+        if actor.save
+            render json: actor
+        else
+            render json: {error: 'Unable to Create Actor'}
+        end
     end
 
     def update
