@@ -14,6 +14,7 @@ class BioCardsController < ApplicationController
             render json: {error: 'Bio Not Found'}
         end
     end
+    
 
     def destroy
     end
