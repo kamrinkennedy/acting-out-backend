@@ -21,6 +21,7 @@ class ActorsController < ApplicationController
         if actor.save 
             render json: actor
         else
+            messages = actor.errors.full_messages.join(', ')
             render json: {error: 'Could not upload picture'}
         end
     end
