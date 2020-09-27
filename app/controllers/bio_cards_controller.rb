@@ -10,15 +10,23 @@ class BioCardsController < ApplicationController
         end
     end
 
-    def edit
+    def update
+        bio_card = BioCard.find(params[:id])
+        if bio_card.update(bio_card_params)
+            render json: bio_card
+        else
+            messages = bio_card.errors.full_messages.join(', ')
+            render json: {error: messages}
+        end
     end
 
     def show
-        bio_card = BioCard.all.find_by(actor_id: params[:id])
+        bio_card = BioCard.find_by(actor_id: params[:id])
         if bio_card
             render json: bio_card
         else
-            render json: {error: 'Bio Not Found'}
+            messages = bio_card.errors.full_messages.join(', ')
+            render json: { error: messages }
         end
     end
     
