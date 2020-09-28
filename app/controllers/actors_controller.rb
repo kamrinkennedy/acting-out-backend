@@ -32,8 +32,6 @@ class ActorsController < ApplicationController
         render json: actor
     end
 
-    def destroy
-    end
 
     private
 
