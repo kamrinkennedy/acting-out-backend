@@ -11,6 +11,13 @@ class ContactCardsController < ApplicationController
     end
 
     def update
+        contact_card = ContactCard.find(params[:id])
+        if contact_card.update(contact_card_params)
+            render json: contact_card
+        else
+            messages = contact_card.errors.full_messages.join(', ')
+            render json: {error: messages}
+        end
     end
 
     def show
