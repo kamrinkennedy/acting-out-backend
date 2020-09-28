@@ -29,10 +29,6 @@ class BioCardsController < ApplicationController
             render json: { error: messages }
         end
     end
-    
-
-    def destroy
-    end
 
     private
     def bio_card_params

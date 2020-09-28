@@ -1,6 +1,13 @@
 class ContactCardsController < ApplicationController
-
+    
     def create
+        contact_card = ContactCard.new(contact_card_params)
+        if contact_card.save
+            render json: contact_card
+        else
+            messages = contact_card.errors.full_messages.join(', ')
+            render json: {error: messages}
+        end
     end
 
     def update
@@ -18,6 +25,6 @@ class ContactCardsController < ApplicationController
 
     private
     def contact_card_params
-        params.require(:contact_card).permit(:email, :phone, :city, :state)
+        params.require(:contact_card).permit(:email, :phone, :city, :state, :actor_id)
     end
 end
