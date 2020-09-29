@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_25_175427) do
+ActiveRecord::Schema.define(version: 2020_09_29_183421) do
 
   create_table "actors", force: :cascade do |t|
     t.string "first_name"
@@ -41,14 +41,5 @@ ActiveRecord::Schema.define(version: 2020_09_25_175427) do
     t.index ["actor_id"], name: "index_contact_cards_on_actor_id"
   end
 
-  create_table "profile_pictures", force: :cascade do |t|
-    t.string "url"
-    t.integer "actor_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["actor_id"], name: "index_profile_pictures_on_actor_id"
-  end
-
   add_foreign_key "contact_cards", "actors"
-  add_foreign_key "profile_pictures", "actors"
 end
