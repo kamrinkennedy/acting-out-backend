@@ -2,7 +2,6 @@ class ActorsController < ApplicationController
 
     def index
         actors = Actor.all
-
         render json: actors 
     end
 
@@ -28,16 +27,13 @@ class ActorsController < ApplicationController
 
     def show 
         actor = Actor.find(params[:id])
-
         render json: actor
     end
-
 
     private
 
     def actor_params
         params.require(:actor).permit(:first_name, :last_name, :picture_url)
     end
-
 
 end
